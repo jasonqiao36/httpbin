@@ -1,0 +1,6 @@
+# Python:
+*.py[cod]
+migrations
+.idea
+venv/
+__pycache__/

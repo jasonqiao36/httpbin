@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>httpbin</title>
+</head>
+<body>
+<div class="mp">
+    <h2>Endpoint</h2>
+    <ul>
+        <li><a href="{{ url_for('index') }}" data-bare-link="true"><code>/</code></a> This Page</li>
+        <li><a href="{{ url_for('get_ip') }}" data-bare-link="true"><code>/ip</code></a> 获取请求IP</li>
+        <li><a href="{{ url_for('get_uuid') }}" data-bare-link="true"><code>/uuid</code></a> 生成uuid4</li>
+        <li><a href="{{ url_for('view_user_agent') }}" data-bare-link="true"><code>/user-agent</code></a> 获取请求代理</li>
+        <li><a href="{{ url_for('get_headers') }}" data-bare-link="true"><code>/headers</code></a> 获取请求头</li>
+        <li><a href="{{ url_for('view_get') }}" data-bare-link="true"><code>/view_get</code></a> 获取GET请求</li>
+        <li><a href="{{ url_for('view_anything') }}" data-bare-link="true"><code>/view_method</code></a> 获取请求，包括请求方法
+        <li><a href="{{ url_for('view_encoding') }}" data-bare-link="true"><code>/encoding</code></a> 返回UTF8编码</li>
+    </ul>
+</div>
+</body>
+</html>
