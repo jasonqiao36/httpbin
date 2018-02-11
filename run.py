@@ -30,7 +30,8 @@ def view_user_agent():
 @app.route('/headers')
 def get_headers():
     return jsonify(
-        dict(args=convert_to_normal_dict(request.args), headers=dict(request.headers), origin=request.remote_addr,
+        dict(args=convert_to_normal_dict(request.args), headers=dict(request.headers),
+             origin=request.headers.get('X-Forwarded-For', request.remote_addr),
              url=request.url))
 
 
