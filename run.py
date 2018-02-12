@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify, make_response
 import uuid
 import json
 
-from helpers import convert_to_normal_dict, get_files
+from helpers import convert_to_normal_dict, get_files, ASCII_ART
 
 app = Flask(__name__)
 
@@ -14,7 +14,7 @@ def index():
 
 @app.route('/ip')
 def get_ip():
-    return jsonify(origin=request.remote_addr)
+    return jsonify(origin=request.headers.get('X-Forwarded-For', request.remote_addr))
 
 
 @app.route('/uuid')
@@ -82,6 +82,24 @@ def view_encoding():
         txt = f.read()
     resp = make_response(txt)
     return txt
+
+
+@app.route('/status/<code>')
+def view_status(code):
+    resp = make_response(ASCII_ART, code)
+    resp.content_type = ''
+    return resp
+
+
+@app.route('/response-headers')
+def view_response_headers():
+    """Display Response Headers"""
+
+    if request.args:
+        for k, v in request.args.items():
+            pass
+    resp = make_response()
+    return 'ok'
 
 
 if __name__ == '__main__':

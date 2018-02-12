@@ -2,6 +2,18 @@ import base64
 import json
 from flask import request
 
+ASCII_ART = """
+    -=[ teapot ]=-
+
+       _...._
+     .'  _ _ `.
+    | ."` ^ `". _,
+    \_;`"---"`|//
+      |       ;/
+      \_     _/
+        `\"\"\"`
+"""
+
 
 def convert_to_normal_dict(obj):
     """
